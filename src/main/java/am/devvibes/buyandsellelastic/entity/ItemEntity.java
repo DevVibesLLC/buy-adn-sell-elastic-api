@@ -30,7 +30,7 @@ public class ItemEntity implements Serializable {
 
 	private BigDecimal item_price;
 
-	private Long item_currenct;
+	private Long item_currency;
 
 	private Long item_country;
 
@@ -44,9 +44,9 @@ public class ItemEntity implements Serializable {
 
 	private Long item_category_id;
 
-	private List<ValueEntity> fields;
+	private List<FieldEntity> fields;
 
-	private String img_url;
+	private String item_image;
 
 	
 }

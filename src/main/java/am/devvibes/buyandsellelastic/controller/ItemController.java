@@ -1,13 +1,11 @@
 package am.devvibes.buyandsellelastic.controller;
 
+import am.devvibes.buyandsellelastic.dto.FilterDto;
 import am.devvibes.buyandsellelastic.entity.ItemEntity;
 import am.devvibes.buyandsellelastic.service.ItemService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -26,6 +24,12 @@ public class ItemController {
 	@GetMapping
 	public ResponseEntity<List<ItemEntity>> getItemById() {
 		return ResponseEntity.ok(itemService.findAllItems());
+	}
+
+	@PostMapping("/filter")
+	public ResponseEntity<List<ItemEntity>> filterItems(@RequestBody FilterDto filterDto) {
+		List<ItemEntity> entityList = itemService.filterItems(filterDto);
+		return ResponseEntity.ok(entityList);
 	}
 
 }

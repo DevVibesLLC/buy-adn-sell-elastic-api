@@ -1,31 +1,20 @@
 package am.devvibes.buyandsellelastic.entity;
 
 import lombok.*;
-import org.springframework.data.annotation.Id;
 import org.springframework.data.elasticsearch.annotations.Document;
 
 import java.io.Serializable;
-import java.util.List;
 
-@Setter
 @Getter
+@Setter
 @Builder
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 @Document(indexName = "field_entity")
 public class FieldEntity implements Serializable {
 
-	@Id
-	private Long id;
+	private Long field_id;
 
-	private String fieldName;
-
-	private boolean isRequired;
-
-	private boolean isPrefilled;
-
-	private List<String> value;
-
-	private MeasurementEntity measurement;
+	private String field_value;
 
 }
